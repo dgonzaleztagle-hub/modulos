@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MODULOS Explorer</title>
+    <link rel="stylesheet" href="/viewer/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="eyebrow">MODULOS</p>
+          <h1>Explorer</h1>
+          <p class="muted">Explora stacks, módulos y casos sin volver a abrir todos los repos.</p>
+        </div>
+
+        <div class="quick-actions">
+          <button class="ghost-button" data-blueprint="restaurante">Stack restaurante</button>
+          <button class="ghost-button" data-blueprint="delivery">Stack delivery</button>
+          <button class="ghost-button" data-blueprint="saas-multitenant">Stack SaaS</button>
+        </div>
+
+        <div class="legend">
+          <p class="legend-title">Estados</p>
+          <div class="chips">
+            <span class="chip chip-green">usable inicial</span>
+            <span class="chip chip-orange">usable inicial endurecido</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="hero hero-v2">
+          <div class="hero-main">
+            <p class="eyebrow">Panel local</p>
+            <h2>Mapa vivo de reutilización</h2>
+            <p class="muted" id="hero-copy">
+              Cargando registry...
+            </p>
+            <label class="hero-search">
+              <span class="field-label">Buscar en todo MODULOS</span>
+              <input id="search-input" type="search" placeholder="zeleri, delivery, reservas, crm..." />
+            </label>
+            <div class="view-tabs" id="view-tabs">
+              <button class="view-tab active" data-view="overview" type="button">Inicio</button>
+              <button class="view-tab" data-view="blueprints" type="button">Stacks</button>
+              <button class="view-tab" data-view="modules" type="button">Módulos</button>
+              <button class="view-tab" data-view="cases" type="button">Casos</button>
+              <button class="view-tab" data-view="builder" type="button">Builder</button>
+            </div>
+          </div>
+          <div class="stats" id="stats"></div>
+        </section>
+
+        <section class="overview-panel" id="overview-panel">
+          <div class="panel-head">
+            <h3>Inicio</h3>
+            <p class="muted">Entra por stack, por caso real o por familia de módulos sin tragarte una lista enorme.</p>
+          </div>
+          <div class="overview-grid" id="overview-grid"></div>
+        </section>
+
+        <section class="search-spotlight" id="search-spotlight" hidden>
+          <div class="search-spotlight-head">
+            <div>
+              <p class="eyebrow">Resultados</p>
+              <h3 id="search-title">Búsqueda activa</h3>
+              <p class="muted" id="search-copy"></p>
+            </div>
+            <button id="clear-search-button" class="ghost-button compact-button" type="button">Limpiar búsqueda</button>
+          </div>
+          <div class="search-preview" id="search-preview"></div>
+        </section>
+
+        <section class="stack-panel" id="stack-panel"></section>
+
+        <section class="builder-panel" id="builder-panel">
+          <div class="panel-head builder-head">
+            <div>
+              <p class="eyebrow">Siguiente paso</p>
+              <h3>Stack Builder</h3>
+              <p class="muted">Elige una vertical, agrega capacidades y deja que el panel arme una propuesta inicial.</p>
+            </div>
+          </div>
+
+          <div class="builder-controls">
+            <label class="field">
+              <span>Vertical base</span>
+              <select id="builder-blueprint"></select>
+            </label>
+
+            <label class="field">
+              <span>Capacidades extra</span>
+              <div id="builder-capabilities" class="capability-picker"></div>
+            </label>
+          </div>
+
+          <div class="builder-summary" id="builder-summary"></div>
+          <div class="builder-brief-panel">
+            <div class="brief-head">
+              <div>
+                <p class="eyebrow">Salida</p>
+                <h4>Brief Técnico Inicial</h4>
+              </div>
+              <button id="copy-brief-button" class="ghost-button compact-button" type="button">Copiar brief</button>
+            </div>
+            <textarea id="builder-brief" class="brief-output" readonly></textarea>
+          </div>
+        </section>
+
+        <section class="grid-layout">
+          <div class="panel">
+            <div class="panel-head">
+              <h3 id="list-title">Resumen</h3>
+              <p class="muted" id="list-copy">Vista general de lo que hoy existe.</p>
+            </div>
+            <div id="list-content" class="list-content"></div>
+          </div>
+
+          <div class="panel detail-panel">
+            <div class="panel-head">
+              <h3>Detalle</h3>
+              <p class="muted">Selecciona un módulo, blueprint o caso.</p>
+            </div>
+            <div id="detail-content" class="detail-content empty">
+              <p>Selecciona algo a la izquierda para ver relaciones, fuentes y rutas.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/viewer/app.js"></script>
+  </body>
+</html>

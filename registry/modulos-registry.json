@@ -1,0 +1,2730 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-17T21:20:00.000Z",
+  "blueprints": [
+    {
+      "id": "restaurante",
+      "path": "blueprints/blueprint-restaurante.md",
+      "description": "Combina marca publica, food/POS, delivery, reservas, pagos y operacion interna.",
+      "recommended_modules": [
+        "food/food-engine-core",
+        "commerce/b2b-store-engine",
+        "commerce/cart-pricing-core",
+        "cms/promotions-banner-engine",
+        "ops/food-ops-notification-core",
+        "pos/product-importer",
+        "pos/table-service-core",
+        "pos/ticket-format-core",
+        "delivery/order-state-machine",
+        "delivery/pricing-core",
+        "delivery/tracking-core",
+        "booking/agenda-core",
+        "booking/booking-locks",
+        "booking/booking-rubro-config-core",
+        "payments/mercadopago-core",
+        "payments/payment-gateway-router-core",
+        "notifications/dashboard-alerts-core",
+        "notifications/dispatch-kit",
+        "notifications/push-notification-sw-core",
+        "pdf/tenant-branded-documents",
+        "notifications/hospitality-email-core"
+      ],
+      "reference_cases": [
+        "rishtedar",
+        "truckpos_new",
+        "acargoo",
+        "donde-germain"
+      ],
+      "capabilities": [
+        "branding",
+        "catalogo",
+        "cart",
+        "ordering",
+        "delivery",
+        "reservas",
+        "promotions",
+        "push-notifications",
+        "food-ops",
+        "pagos",
+        "operacion",
+        "hospitality-emails"
+      ]
+    },
+    {
+      "id": "delivery",
+      "path": "blueprints/blueprint-delivery.md",
+      "description": "Stack base para operaciones con pricing, tracking, estados y pagos.",
+      "recommended_modules": [
+        "delivery/order-state-machine",
+        "delivery/pricing-core",
+        "delivery/tracking-core",
+        "geo/route-planning-core",
+        "delivery/toll-pricing-core",
+        "payments/mercadopago-core",
+        "pdf/pod-certificate-core",
+        "notifications/dispatch-kit",
+        "notifications/driver-subscription-core",
+        "notifications/order-update-message-core",
+        "notifications/order-update-email-core",
+        "pdf/tenant-branded-documents",
+        "delivery/route-compliance-core"
+      ],
+      "reference_cases": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "capabilities": [
+        "delivery",
+        "tracking",
+        "pricing",
+        "pagos",
+        "notificaciones",
+        "route-audit"
+      ]
+    },
+    {
+      "id": "transporte-tracking",
+      "path": "blueprints/blueprint-transporte-tracking.md",
+      "description": "Stack base para recorridos visibles en mapa con vehículo live, ETA y progreso para terceros.",
+      "recommended_modules": [
+        "delivery/tracking-core",
+        "geo/route-planning-core",
+        "geo/map-surface-core",
+        "notifications/driver-subscription-core",
+        "notifications/dispatch-kit",
+        "notifications/dashboard-alerts-core",
+        "tenancy/tenant-config-core"
+      ],
+      "reference_cases": [
+        "acargoo"
+      ],
+      "capabilities": [
+        "tracking",
+        "vehicle-live-map",
+        "eta",
+        "guardian-view",
+        "notificaciones"
+      ]
+    },
+    {
+      "id": "pos",
+      "path": "blueprints/blueprint-pos.md",
+      "description": "Stack base para catalogo, productos, operacion y soporte food/POS.",
+      "recommended_modules": [
+        "pos/product-importer",
+        "pos/table-service-core",
+        "pos/ticket-format-core",
+        "food/food-engine-core",
+        "ops/food-ops-notification-core",
+        "ops/cash-close-alerts-core",
+        "ops/report-dataset-core",
+        "payments/mercadopago-core",
+        "pdf/tenant-branded-documents",
+        "ops/report-pipeline-core"
+      ],
+      "reference_cases": [
+        "truckpos_new",
+        "rishtedar"
+      ],
+      "capabilities": [
+        "catalogo",
+        "pos",
+        "caja",
+        "inventario",
+        "reportes"
+      ]
+    },
+    {
+      "id": "booking",
+      "path": "blueprints/blueprint-booking.md",
+      "description": "Stack base para agenda, locks, pagos y documentos derivados.",
+      "recommended_modules": [
+        "booking/agenda-core",
+        "booking/booking-locks",
+        "booking/booking-rubro-config-core",
+        "payments/mercadopago-core",
+        "payments/zeleri-signature-core",
+        "payments/zeleri-oneshot-core",
+        "pdf/tenant-branded-documents",
+        "notifications/hospitality-email-core"
+      ],
+      "reference_cases": [
+        "rishtedar"
+      ],
+      "capabilities": [
+        "agenda",
+        "reservas",
+        "rubro-config",
+        "bloqueos",
+        "checkout",
+        "hospitality-emails"
+      ]
+    },
+    {
+      "id": "saas-multitenant",
+      "path": "blueprints/blueprint-saas-multitenant.md",
+      "description": "Stack base para tenancy, portales, pagos, soporte y CMS.",
+      "recommended_modules": [
+        "tenancy/tenant-config-core",
+        "tenancy/tenant-limits-core",
+        "tenancy/tenant-shell-core",
+        "tenancy/tenant-host-routing-core",
+        "access/credentials-encryption-core",
+        "access/worker-registration-link-core",
+        "payments/mercadopago-core",
+        "payments/payment-gateway-router-core",
+        "crm/support-inbox-core",
+        "portals/role-based-portals",
+        "cms/editable-content-core",
+        "pdf/tenant-branded-documents",
+        "ops/subscription-alerts-core",
+        "ops/monthly-credit-reset-core",
+        "ops/rate-limit-core",
+        "ops/weighted-cost-core",
+        "payments/currency-format-core",
+        "notifications/notification-preferences-core"
+      ],
+      "reference_cases": [
+        "superpanel3.0"
+      ],
+      "capabilities": [
+        "tenancy",
+        "branding",
+        "roles",
+        "tenant-routing",
+        "pagos",
+        "soporte",
+        "cms",
+        "credentials",
+        "payment-routing",
+        "tenant-limits",
+        "subscription-alerts",
+        "snapshot-backups",
+        "credit-billing",
+        "notification-preferences"
+      ]
+    },
+    {
+      "id": "crm-operativo",
+      "path": "blueprints/blueprint-crm-operativo.md",
+      "description": "Stack base para pipeline, inbox, notificaciones y portales por rol.",
+      "recommended_modules": [
+        "crm/pipeline-board",
+        "crm/email-parsing-core",
+        "crm/outreach-message-core",
+        "crm/support-inbox-core",
+        "crm/lead-hunting-core",
+        "notifications/dashboard-alerts-core",
+        "notifications/dispatch-kit",
+        "portals/role-based-portals",
+        "notifications/whatsapp-template-kit",
+        "ops/project-workspace-core",
+        "ops/project-accounting-core",
+        "access/project-credentials-vault-core",
+        "crm/demo-tracking-core",
+        "crm/growth-plan-core",
+        "crm/sales-agent-core"
+      ],
+      "reference_cases": [
+        "agendaproyectos"
+      ],
+      "capabilities": [
+        "crm",
+        "pipeline",
+        "lead-hunting",
+        "email-parsing",
+        "outreach",
+        "soporte",
+        "seguimiento",
+        "whatsapp",
+        "project-workspaces",
+        "internal-ops",
+        "credentials-vault",
+        "demo-tracking",
+        "growth-plans",
+        "sales-agent"
+      ]
+    },
+    {
+      "id": "real-estate-operativo",
+      "path": "blueprints/blueprint-real-estate-operativo.md",
+      "description": "Stack base para corredoras con portales, contratos, mora y publicación externa.",
+      "recommended_modules": [
+        "portals/role-based-portals",
+        "integrations/property-publisher-core",
+        "notifications/whatsapp-template-kit",
+        "ops/arrears-alert-core",
+        "pdf/rental-contract-outline-core",
+        "pdf/tenant-branded-documents",
+        "ops/report-pipeline-core",
+        "ops/chilean-utils-core",
+        "geo/map-surface-core"
+      ],
+      "reference_cases": [
+        "CorredoresPro"
+      ],
+      "capabilities": [
+        "real-estate",
+        "contracts",
+        "arrears",
+        "tenant-portals",
+        "publisher",
+        "whatsapp",
+        "operacion-chile",
+        "map-surface"
+      ]
+    },
+    {
+      "id": "rrhh-documental",
+      "path": "blueprints/blueprint-rrhh-documental.md",
+      "description": "Stack base para onboarding de trabajador, contratos y trazabilidad RRHH por tenant.",
+      "recommended_modules": [
+        "tenancy/tenant-config-core",
+        "tenancy/tenant-shell-core",
+        "access/worker-registration-link-core",
+        "pdf/employment-contract-outline-core",
+        "pdf/service-quote-outline-core",
+        "pdf/honorarios-account-outline-core",
+        "pdf/social-security-report-outline-core",
+        "ops/worker-event-compensation-core",
+        "pdf/tenant-branded-documents",
+        "ops/chilean-utils-core"
+      ],
+      "reference_cases": [
+        "pluscontable.cl"
+      ],
+      "capabilities": [
+        "rrhh",
+        "worker-onboarding",
+        "employment-contracts",
+        "worker-events",
+        "tenant-branding",
+        "operacion-chile"
+      ]
+    },
+    {
+      "id": "loyalty-wallet",
+      "path": "blueprints/blueprint-loyalty-wallet.md",
+      "description": "Stack base para fidelización multi-tenant con Google Wallet, geofencing, push y agenda híbrida.",
+      "recommended_modules": [
+        "tenancy/tenant-config-core",
+        "tenancy/tenant-shell-core",
+        "commerce/program-motor-config-core",
+        "crm/loyalty-ledger-core",
+        "integrations/google-wallet-pass-core",
+        "notifications/wallet-message-core",
+        "notifications/push-notification-sw-core",
+        "notifications/webpush-delivery-core",
+        "booking/booking-rubro-config-core"
+      ],
+      "reference_cases": [
+        "fidelizacion"
+      ],
+      "capabilities": [
+        "loyalty",
+        "wallet",
+        "geofencing",
+        "program-motors",
+        "push",
+        "agenda-hibrida"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "acargoo",
+      "path": "casos/acargoo.md",
+      "project_type": "delivery",
+      "source_repos": [
+        "acargoo"
+      ],
+      "modules": [
+        "delivery/order-state-machine",
+        "delivery/pricing-core",
+        "delivery/tracking-core",
+        "geo/route-planning-core",
+        "delivery/toll-pricing-core",
+        "notifications/dispatch-kit",
+        "notifications/driver-subscription-core",
+        "notifications/order-update-message-core",
+        "notifications/order-update-email-core",
+        "pdf/pod-certificate-core",
+        "pdf/tenant-branded-documents",
+        "delivery/route-compliance-core"
+      ],
+      "tags": [
+        "delivery",
+        "tracking",
+        "dispatch",
+        "pricing",
+        "route-audit"
+      ]
+    },
+    {
+      "id": "agendaproyectos",
+      "path": "casos/agendaproyectos.md",
+      "project_type": "crm-operativo",
+      "source_repos": [
+        "agendaproyectos"
+      ],
+      "modules": [
+        "ops/project-workspace-core",
+        "ops/project-accounting-core",
+        "access/project-credentials-vault-core"
+      ],
+      "tags": [
+        "project-workspace",
+        "internal-ops",
+        "crm-operativo",
+        "accounting",
+        "credentials-vault"
+      ]
+    },
+    {
+      "id": "bizscout",
+      "path": "casos/bizscout.md",
+      "project_type": "crm-operativo",
+      "source_repos": [
+        "bizscout"
+      ],
+      "modules": [
+        "crm/lead-hunting-core",
+        "crm/outreach-message-core",
+        "notifications/whatsapp-template-kit",
+        "notifications/order-update-email-core"
+      ],
+      "tags": [
+        "lead-hunting",
+        "crm",
+        "outreach",
+        "agenda",
+        "geolocalized-prospecting"
+      ]
+    },
+    {
+      "id": "CorredoresPro",
+      "path": "casos/CorredoresPro.md",
+      "project_type": "real-estate-operativo",
+      "source_repos": [
+        "CorredoresPro"
+      ],
+      "modules": [
+        "portals/role-based-portals",
+        "integrations/property-publisher-core",
+        "notifications/whatsapp-template-kit",
+        "ops/arrears-alert-core",
+        "ops/chilean-utils-core",
+        "ops/report-pipeline-core",
+        "pdf/rental-contract-outline-core",
+        "pdf/tenant-branded-documents"
+      ],
+      "tags": [
+        "real-estate",
+        "contracts",
+        "arrears",
+        "portals",
+        "publisher",
+        "financial-dashboard",
+        "tenant-onboarding"
+      ]
+    },
+    {
+      "id": "caprex",
+      "path": "casos/caprex.md",
+      "project_type": "saas-multitenant",
+      "source_repos": [
+        "caprex",
+        "zeus"
+      ],
+      "modules": [
+        "portals/role-based-portals",
+        "access/download-token-core",
+        "booking/agenda-core"
+      ],
+      "tags": [
+        "private-library",
+        "content-commerce",
+        "shared-accounts",
+        "temporary-grants",
+        "digital-access"
+      ]
+    },
+    {
+      "id": "ceroriesgos",
+      "path": "casos/ceroriesgos.md",
+      "project_type": "ai-workflow-operativo",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "modules": [
+        "ai/safety-assistant-core",
+        "pdf/safety-report-outline-core",
+        "ops/corrective-measure-tracker-core",
+        "ops/five-whys-core",
+        "ops/inspection-checklist-core"
+      ],
+      "tags": [
+        "ai-workflow",
+        "structured-ai",
+        "reports",
+        "compliance",
+        "corrective-measures"
+      ]
+    },
+    {
+      "id": "donde-germain",
+      "path": "casos/donde-germain.md",
+      "project_type": "restaurant-branding",
+      "source_repos": [
+        "hojacero/app/prospectos/donde-germain"
+      ],
+      "modules": [
+        "cms/editable-content-core",
+        "delivery/tracking-core"
+      ],
+      "tags": [
+        "branding",
+        "food",
+        "public-surface",
+        "tracking"
+      ]
+    },
+    {
+      "id": "fidelizacion",
+      "path": "casos/fidelizacion.md",
+      "project_type": "loyalty-wallet",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "modules": [
+        "booking/booking-rubro-config-core",
+        "commerce/program-motor-config-core",
+        "crm/loyalty-ledger-core",
+        "integrations/google-wallet-pass-core",
+        "notifications/wallet-message-core",
+        "notifications/push-notification-sw-core",
+        "notifications/webpush-delivery-core"
+      ],
+      "tags": [
+        "loyalty",
+        "wallet",
+        "geofencing",
+        "streaks",
+        "agenda"
+      ]
+    },
+    {
+      "id": "hojacero",
+      "path": "casos/hojacero.md",
+      "project_type": "nave-nodriza",
+      "source_repos": [
+        "hojacero"
+      ],
+      "modules": [
+        "food/food-engine-core",
+        "crm/pipeline-board",
+        "crm/support-inbox-core",
+        "geo/territorial-intelligence",
+        "cms/editable-content-core",
+        "commerce/b2b-store-engine",
+        "pdf/territorial-report-outline-core",
+        "intelligence/scraping-intelligence-kit",
+        "factory/landing-factory"
+      ],
+      "tags": [
+        "nave-nodriza",
+        "crm",
+        "food",
+        "cms",
+        "scraping",
+        "factory"
+      ]
+    },
+    {
+      "id": "pluscontable.cl",
+      "path": "casos/pluscontable.cl.md",
+      "project_type": "rrhh-documental",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "modules": [
+        "tenancy/tenant-config-core",
+        "tenancy/tenant-limits-core",
+        "tenancy/tenant-shell-core",
+        "access/worker-registration-link-core",
+        "pdf/employment-contract-outline-core",
+        "pdf/service-quote-outline-core",
+        "pdf/honorarios-account-outline-core",
+        "pdf/social-security-report-outline-core",
+        "ops/worker-event-compensation-core",
+        "pdf/tenant-branded-documents"
+      ],
+      "tags": [
+        "rrhh",
+        "tenant",
+        "worker-onboarding",
+        "contracts",
+        "events"
+      ]
+    },
+    {
+      "id": "rishtedar",
+      "path": "casos/rishtedar.md",
+      "project_type": "restaurante",
+      "source_repos": [
+        "rishtedar",
+        "truckpos_new",
+        "acargoo",
+        "hojacero/app/prospectos/donde-germain"
+      ],
+      "modules": [
+        "food/food-engine-core",
+        "pos/product-importer",
+        "pos/table-service-core",
+        "pos/ticket-format-core",
+        "commerce/b2b-store-engine",
+        "commerce/cart-pricing-core",
+        "delivery/order-state-machine",
+        "delivery/pricing-core",
+        "delivery/tracking-core",
+        "booking/agenda-core",
+        "booking/booking-locks",
+        "booking/booking-rubro-config-core",
+        "payments/mercadopago-core",
+        "payments/payment-gateway-router-core",
+        "notifications/dashboard-alerts-core",
+        "notifications/dispatch-kit",
+        "cms/promotions-banner-engine"
+      ],
+      "tags": [
+        "restaurante",
+        "delivery",
+        "reservas",
+        "dashboard",
+        "promos"
+      ]
+    },
+    {
+      "id": "superpanel3.0",
+      "path": "casos/superpanel3.0.md",
+      "project_type": "saas-multitenant",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "modules": [
+        "ops/snapshot-toolkit",
+        "ops/subscription-alerts-core",
+        "ops/expiration-window-core",
+        "ops/monthly-credit-reset-core",
+        "ops/rate-limit-core",
+        "ops/weighted-cost-core",
+        "payments/currency-format-core",
+        "notifications/notification-preferences-core"
+      ],
+      "tags": [
+        "saas-multitenant",
+        "snapshot-backups",
+        "credit-billing",
+        "tenant-routing",
+        "white-label"
+      ]
+    },
+    {
+      "id": "truckpos_new",
+      "path": "casos/truckpos_new.md",
+      "project_type": "pos",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "modules": [
+        "pos/product-importer",
+        "pos/table-service-core",
+        "pos/ticket-format-core",
+        "ops/food-ops-notification-core",
+        "food/food-engine-core",
+        "payments/mercadopago-core",
+        "pdf/tenant-branded-documents"
+      ],
+      "tags": [
+        "pos",
+        "inventario",
+        "caja",
+        "food",
+        "menu-qr",
+        "public-tracking"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "access/credentials-encryption-core",
+      "path": "modulos/access/credentials-encryption-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "integraciones externas",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "aes-gcm",
+        "credentials-encryption",
+        "secrets-storage"
+      ]
+    },
+    {
+      "id": "access/download-token-core",
+      "path": "modulos/access/download-token-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "integraciones externas",
+      "source_repos": [
+        "zeus"
+      ],
+      "used_in_cases": [
+        "caprex"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "download-token",
+        "asset-path-normalization",
+        "expiring-access"
+      ]
+    },
+    {
+      "id": "access/project-credentials-vault-core",
+      "path": "modulos/access/project-credentials-vault-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "agendaproyectos"
+      ],
+      "used_in_cases": [
+        "agendaproyectos"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "project-vault",
+        "vendor-credentials",
+        "custom-secrets"
+      ]
+    },
+    {
+      "id": "access/worker-registration-link-core",
+      "path": "modulos/access/worker-registration-link-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "worker-registration-link",
+        "token-expiration",
+        "public-onboarding-url"
+      ]
+    },
+    {
+      "id": "booking/agenda-core",
+      "path": "modulos/booking/agenda-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reservas y agenda",
+      "source_repos": [
+        "hojacero",
+        "zeus",
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "caprex",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "booking",
+        "restaurante"
+      ],
+      "capabilities": [
+        "availability",
+        "slots",
+        "agenda"
+      ]
+    },
+    {
+      "id": "booking/booking-locks",
+      "path": "modulos/booking/booking-locks/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reservas y agenda",
+      "source_repos": [
+        "zeus",
+        "rishtedar",
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "booking",
+        "restaurante"
+      ],
+      "capabilities": [
+        "locks",
+        "pending-bookings",
+        "expiration"
+      ]
+    },
+    {
+      "id": "booking/booking-rubro-config-core",
+      "path": "modulos/booking/booking-rubro-config-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reservas y agenda",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "booking",
+        "loyalty-wallet",
+        "restaurante"
+      ],
+      "capabilities": [
+        "rubro-config",
+        "service-presets",
+        "booking-verticals"
+      ]
+    },
+    {
+      "id": "cms/editable-content-core",
+      "path": "modulos/cms/editable-content-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CMS, landing y contenido",
+      "source_repos": [
+        "hojacero",
+        "donde-germain"
+      ],
+      "used_in_cases": [
+        "donde-germain",
+        "hojacero"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "content-editing",
+        "patching",
+        "cms"
+      ]
+    },
+    {
+      "id": "cms/promotions-banner-engine",
+      "path": "modulos/cms/promotions-banner-engine/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CMS, landing y contenido",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "restaurante"
+      ],
+      "capabilities": [
+        "promotions",
+        "banner-engine",
+        "time-window-filtering"
+      ]
+    },
+    {
+      "id": "commerce/b2b-store-engine",
+      "path": "modulos/commerce/b2b-store-engine/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "hojacero",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "restaurante"
+      ],
+      "capabilities": [
+        "b2b-catalog",
+        "variants",
+        "cart",
+        "quote-message"
+      ]
+    },
+    {
+      "id": "commerce/cart-pricing-core",
+      "path": "modulos/commerce/cart-pricing-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "restaurante"
+      ],
+      "capabilities": [
+        "subtotal",
+        "discounts",
+        "cart-total",
+        "item-merge"
+      ]
+    },
+    {
+      "id": "commerce/program-motor-config-core",
+      "path": "modulos/commerce/program-motor-config-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet"
+      ],
+      "capabilities": [
+        "program-types",
+        "motor-configs",
+        "legacy-config-migration"
+      ]
+    },
+    {
+      "id": "crm/advisor-insights-core",
+      "path": "modulos/crm/advisor-insights-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "IA, chat y automatización",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "advisor-insights",
+        "retention-alerts",
+        "vip-opportunities"
+      ]
+    },
+    {
+      "id": "crm/email-parsing-core",
+      "path": "modulos/crm/email-parsing-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "email-decoding",
+        "multipart-parsing",
+        "sender-identity"
+      ]
+    },
+    {
+      "id": "crm/lead-hunting-core",
+      "path": "modulos/crm/lead-hunting-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "bizscout"
+      ],
+      "used_in_cases": [
+        "bizscout"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "lead-hunting",
+        "classification",
+        "outreach-prep"
+      ]
+    },
+    {
+      "id": "crm/loyalty-ledger-core",
+      "path": "modulos/crm/loyalty-ledger-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet"
+      ],
+      "capabilities": [
+        "loyalty",
+        "tiers",
+        "points-ledger"
+      ]
+    },
+    {
+      "id": "crm/outreach-message-core",
+      "path": "modulos/crm/outreach-message-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "bizscout"
+      ],
+      "used_in_cases": [
+        "bizscout"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "template-personalization",
+        "email-html",
+        "contact-links"
+      ]
+    },
+    {
+      "id": "crm/pipeline-board",
+      "path": "modulos/crm/pipeline-board/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "hojacero",
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "pipeline",
+        "stages",
+        "board"
+      ]
+    },
+    {
+      "id": "crm/support-inbox-core",
+      "path": "modulos/crm/support-inbox-core/src/index.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "hojacero",
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "tickets",
+        "threads",
+        "inbox"
+      ]
+    },
+    {
+      "id": "delivery/dispatch-ranking-core",
+      "path": "modulos/delivery/dispatch-ranking-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "dispatch-ranking",
+        "driver-scoring",
+        "capacity-aware-ranking"
+      ]
+    },
+    {
+      "id": "delivery/order-state-machine",
+      "path": "modulos/delivery/order-state-machine/src/index.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "delivery",
+        "restaurante"
+      ],
+      "capabilities": [
+        "state-machine",
+        "order-status",
+        "delivery-flow"
+      ]
+    },
+    {
+      "id": "delivery/pricing-core",
+      "path": "modulos/delivery/pricing-core/src/index.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "delivery",
+        "restaurante"
+      ],
+      "capabilities": [
+        "pricing",
+        "delivery-fees",
+        "payment-timing"
+      ]
+    },
+    {
+      "id": "delivery/route-compliance-core",
+      "path": "modulos/delivery/route-compliance-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery"
+      ],
+      "capabilities": [
+        "route-audit",
+        "tracking-compliance",
+        "tag-policy"
+      ]
+    },
+    {
+      "id": "delivery/toll-pricing-core",
+      "path": "modulos/delivery/toll-pricing-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery"
+      ],
+      "capabilities": [
+        "toll-estimation",
+        "route-portals",
+        "time-tier-pricing"
+      ]
+    },
+    {
+      "id": "delivery/tracking-core",
+      "path": "modulos/delivery/tracking-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "delivery y tracking",
+      "source_repos": [
+        "acargoo",
+        "rishtedar",
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "acargoo",
+        "donde-germain",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "delivery",
+        "restaurante",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "tracking",
+        "timeline",
+        "public-tracking"
+      ]
+    },
+    {
+      "id": "factory/landing-factory",
+      "path": "catalogo/hojacero.md",
+      "status": "referencia final",
+      "category": "CMS, landing y contenido",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "landing-builder",
+        "section-rendering",
+        "campaign-editor",
+        "preview",
+        "sectional-landing-editor",
+        "factory-workflow-lineage",
+        "campaign-landing-config"
+      ],
+      "summary": "Familia de factory seccional orientada a landings y campañas, más amplia que el core ya extraído."
+    },
+    {
+      "id": "factory/landing-factory-core",
+      "path": "modulos/factory/landing-factory-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CMS, landing y contenido",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "landing-config",
+        "section-update",
+        "factory-editor-state"
+      ]
+    },
+    {
+      "id": "food/food-engine-core",
+      "path": "modulos/food/food-engine-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new",
+        "rishtedar",
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "hojacero",
+        "rishtedar",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "restaurante"
+      ],
+      "capabilities": [
+        "menu",
+        "cart",
+        "inventory",
+        "order-ops",
+        "store-session"
+      ]
+    },
+    {
+      "id": "geo/route-planning-core",
+      "path": "modulos/geo/route-planning-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "geo, mapas y territorial",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "geocoding",
+        "route-planning",
+        "provider-fallbacks",
+        "polyline-decoding"
+      ]
+    },
+    {
+      "id": "geo/territorial-intelligence",
+      "path": "modulos/geo/territorial-intelligence/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "geo, mapas y territorial",
+      "source_repos": [
+        "hojacero",
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "geo-summary",
+        "territories",
+        "coverage"
+      ]
+    },
+    {
+      "id": "integrations/google-wallet-pass-core",
+      "path": "modulos/integrations/google-wallet-pass-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "integraciones externas",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet"
+      ],
+      "capabilities": [
+        "wallet-pass-payload",
+        "geofencing-payload",
+        "wallet-object-candidates"
+      ]
+    },
+    {
+      "id": "integrations/property-publisher-core",
+      "path": "modulos/integrations/property-publisher-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "integraciones externas",
+      "source_repos": [
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "CorredoresPro"
+      ],
+      "used_in_blueprints": [
+        "real-estate-operativo"
+      ],
+      "capabilities": [
+        "publisher",
+        "external-sync",
+        "listing-status"
+      ]
+    },
+    {
+      "id": "intelligence/food-saturation-core",
+      "path": "modulos/intelligence/food-saturation-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "geo, mapas y territorial",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "food-saturation",
+        "competition-analysis",
+        "blue-ocean-red-ocean"
+      ]
+    },
+    {
+      "id": "intelligence/scraper-engine-core",
+      "path": "modulos/intelligence/scraper-engine-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "geo, mapas y territorial",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "scraper-engine",
+        "url-discovery",
+        "timeout-fetch",
+        "batch-concurrency"
+      ]
+    },
+    {
+      "id": "intelligence/scraping-intelligence-kit",
+      "path": "catalogo/hojacero.md",
+      "status": "referencia final",
+      "category": "geo, mapas y territorial",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "scraping",
+        "market-intelligence",
+        "saturation-analysis",
+        "geo-enrichment",
+        "multi-source-scraping",
+        "territorial-analysis-kit",
+        "volatile-provider-adapters"
+      ],
+      "summary": "Kit multi-fuente de scraping territorial y competitivo con engine, conectores volátiles y capa de análisis."
+    },
+    {
+      "id": "notifications/dashboard-alerts-core",
+      "path": "modulos/notifications/dashboard-alerts-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "used_in_cases": [
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo",
+        "restaurante",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "dashboard-alerts",
+        "tone-config",
+        "order-reservation-delivery-copy"
+      ]
+    },
+    {
+      "id": "notifications/dispatch-kit",
+      "path": "modulos/notifications/dispatch-kit/src/index.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "acargoo",
+        "rishtedar",
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "acargoo",
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo",
+        "delivery",
+        "restaurante",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "dispatch",
+        "multi-channel",
+        "notification-routing"
+      ]
+    },
+    {
+      "id": "notifications/driver-subscription-core",
+      "path": "modulos/notifications/driver-subscription-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "push-subscriptions",
+        "driver-endpoints",
+        "endpoint-dedup"
+      ]
+    },
+    {
+      "id": "notifications/notification-preferences-core",
+      "path": "modulos/notifications/notification-preferences-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajeria",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "notification-preferences",
+        "channel-toggle",
+        "fallback-policy"
+      ]
+    },
+    {
+      "id": "notifications/order-update-email-core",
+      "path": "modulos/notifications/order-update-email-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo",
+        "bizscout"
+      ],
+      "used_in_blueprints": [
+        "delivery"
+      ],
+      "capabilities": [
+        "transactional-email",
+        "tracking-cta",
+        "service-status-email"
+      ]
+    },
+    {
+      "id": "notifications/agenda-email-core",
+      "path": "modulos/notifications/agenda-email-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "agenda-reminders",
+        "assignee-routing",
+        "internal-meeting-email",
+        "reminder-window"
+      ]
+    },
+    {
+      "id": "notifications/order-update-message-core",
+      "path": "modulos/notifications/order-update-message-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery"
+      ],
+      "capabilities": [
+        "order-copy",
+        "event-messaging",
+        "wa-link"
+      ]
+    },
+    {
+      "id": "notifications/push-notification-sw-core",
+      "path": "modulos/notifications/push-notification-sw-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet",
+        "restaurante"
+      ],
+      "capabilities": [
+        "push-payloads",
+        "service-worker-notifications",
+        "notification-click-routing"
+      ]
+    },
+    {
+      "id": "notifications/webpush-delivery-core",
+      "path": "modulos/notifications/webpush-delivery-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet"
+      ],
+      "capabilities": [
+        "webpush-delivery",
+        "tenant-audience-targeting",
+        "expired-subscription-cleanup"
+      ]
+    },
+    {
+      "id": "notifications/wallet-message-core",
+      "path": "modulos/notifications/wallet-message-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [
+        "fidelizacion"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet"
+      ],
+      "capabilities": [
+        "wallet-message-normalization",
+        "duplicate-throttle",
+        "wallet-delivery-policy"
+      ]
+    },
+    {
+      "id": "notifications/whatsapp-template-kit",
+      "path": "modulos/notifications/whatsapp-template-kit/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajería",
+      "source_repos": [
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "CorredoresPro",
+        "bizscout"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo",
+        "real-estate-operativo"
+      ],
+      "capabilities": [
+        "whatsapp",
+        "message-templates",
+        "wa-link"
+      ]
+    },
+    {
+      "id": "ops/arrears-alert-core",
+      "path": "modulos/ops/arrears-alert-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "CorredoresPro"
+      ],
+      "used_in_blueprints": [
+        "real-estate-operativo"
+      ],
+      "capabilities": [
+        "arrears-grouping",
+        "severity-thresholds",
+        "legal-notice"
+      ]
+    },
+    {
+      "id": "ops/corrective-measure-tracker-core",
+      "path": "modulos/ops/corrective-measure-tracker-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "used_in_cases": [
+        "ceroriesgos"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "corrective-measures",
+        "deadline-sorting",
+        "overdue-summary"
+      ]
+    },
+    {
+      "id": "ops/cash-close-alerts-core",
+      "path": "modulos/ops/cash-close-alerts-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "pos"
+      ],
+      "capabilities": [
+        "cash-close-windows",
+        "close-reminders",
+        "operational-alert-stages"
+      ]
+    },
+    {
+      "id": "ops/expiration-window-core",
+      "path": "modulos/ops/expiration-window-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "expiration-checkpoints",
+        "warn-5-3-1",
+        "notification-policy"
+      ]
+    },
+    {
+      "id": "ops/food-ops-notification-core",
+      "path": "modulos/ops/food-ops-notification-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "used_in_cases": [
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "restaurante"
+      ],
+      "capabilities": [
+        "pending-orders",
+        "low-stock-alerts",
+        "ops-badge-count"
+      ]
+    },
+    {
+      "id": "ops/inspection-checklist-core",
+      "path": "modulos/ops/inspection-checklist-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "used_in_cases": [
+        "ceroriesgos"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "inspection-checklist",
+        "template-results",
+        "compliance-summary"
+      ]
+    },
+    {
+      "id": "ops/five-whys-core",
+      "path": "modulos/ops/five-whys-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "used_in_cases": [
+        "ceroriesgos"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "five-whys",
+        "root-cause-analysis",
+        "incident-postmortem"
+      ]
+    },
+    {
+      "id": "ops/monthly-credit-reset-core",
+      "path": "modulos/ops/monthly-credit-reset-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "monthly-credit-reset",
+        "provider-billing",
+        "reset-expense-payload"
+      ]
+    },
+    {
+      "id": "ops/project-accounting-core",
+      "path": "modulos/ops/project-accounting-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "agendaproyectos"
+      ],
+      "used_in_cases": [
+        "agendaproyectos"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "project-revenue",
+        "client-records",
+        "implementation-installments"
+      ]
+    },
+    {
+      "id": "ops/project-workspace-core",
+      "path": "modulos/ops/project-workspace-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "agendaproyectos"
+      ],
+      "used_in_cases": [
+        "agendaproyectos"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ],
+      "capabilities": [
+        "project-workspace",
+        "blob-normalization",
+        "last-activity"
+      ]
+    },
+    {
+      "id": "ops/rate-limit-core",
+      "path": "modulos/ops/rate-limit-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "rate-limit",
+        "brute-force-guard",
+        "endpoint-throttle"
+      ]
+    },
+    {
+      "id": "ops/report-dataset-core",
+      "path": "modulos/ops/report-dataset-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "pos"
+      ],
+      "capabilities": [
+        "financial-summary-rows",
+        "sales-csv-dataset",
+        "product-report-normalization"
+      ]
+    },
+    {
+      "id": "ops/snapshot-toolkit",
+      "path": "modulos/ops/snapshot-toolkit/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "snapshot",
+        "backup-manifest",
+        "table-counts"
+      ]
+    },
+    {
+      "id": "ops/subscription-alerts-core",
+      "path": "modulos/ops/subscription-alerts-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "subscription-alerts",
+        "expiration-checks",
+        "dedupe-daily-alerts"
+      ]
+    },
+    {
+      "id": "ops/weighted-cost-core",
+      "path": "modulos/ops/weighted-cost-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "CRM, pipeline y backoffice",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "weighted-average-cost",
+        "monthly-reset-cost-policy",
+        "margin-basis"
+      ]
+    },
+    {
+      "id": "ops/worker-event-compensation-core",
+      "path": "modulos/ops/worker-event-compensation-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental"
+      ],
+      "capabilities": [
+        "worker-events",
+        "extra-hours",
+        "absence-discounts",
+        "rrhh-summary"
+      ]
+    },
+    {
+      "id": "payments/currency-format-core",
+      "path": "modulos/payments/currency-format-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [
+        "superpanel3.0"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "currency-format",
+        "currency-decimals",
+        "input-step"
+      ]
+    },
+    {
+      "id": "payments/flow-subscription-core",
+      "path": "modulos/payments/flow-subscription-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "flow-signatures",
+        "subscription-payloads",
+        "customer-billing"
+      ]
+    },
+    {
+      "id": "payments/mercadopago-core",
+      "path": "modulos/payments/mercadopago-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "rishtedar",
+        "pluscontable.cl",
+        "kurso",
+        "truckpos_new",
+        "zeus"
+      ],
+      "used_in_cases": [
+        "rishtedar",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "booking",
+        "delivery",
+        "pos",
+        "restaurante",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "checkout",
+        "webhook-normalization",
+        "payment-status"
+      ]
+    },
+    {
+      "id": "payments/payment-allocation-core",
+      "path": "modulos/payments/payment-allocation-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "kurso"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "payment-expansion",
+        "school-periods",
+        "approval-entries"
+      ]
+    },
+    {
+      "id": "payments/payment-gateway-router-core",
+      "path": "modulos/payments/payment-gateway-router-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "rishtedar"
+      ],
+      "used_in_blueprints": [
+        "restaurante",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "payment-routing",
+        "gateway-payloads",
+        "flow-signature",
+        "transbank-routing"
+      ]
+    },
+    {
+      "id": "payments/payment-grouping-core",
+      "path": "modulos/payments/payment-grouping-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "kurso"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "payment-grouping",
+        "folio-range",
+        "period-summary"
+      ]
+    },
+    {
+      "id": "payments/zeleri-signature-core",
+      "path": "modulos/payments/zeleri-signature-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "zeus"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "booking"
+      ],
+      "capabilities": [
+        "hmac-signature",
+        "deterministic-payloads",
+        "webhook-validation"
+      ]
+    },
+    {
+      "id": "payments/zeleri-oneshot-core",
+      "path": "modulos/payments/zeleri-oneshot-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "zeus"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "booking"
+      ],
+      "capabilities": [
+        "zeleri-oneshot",
+        "checkout-request-plan",
+        "order-detail-status",
+        "paid-status"
+      ]
+    },
+    {
+      "id": "payments/zeleri-enrollment-core",
+      "path": "modulos/payments/zeleri-enrollment-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "pagos y checkout",
+      "source_repos": [
+        "zeus"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "card-enrollment",
+        "stored-card-payments",
+        "card-listing",
+        "payment-confirmation"
+      ]
+    },
+    {
+      "id": "pdf/employment-contract-outline-core",
+      "path": "modulos/pdf/employment-contract-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental"
+      ],
+      "capabilities": [
+        "employment-contract-outline",
+        "annex-outline",
+        "labor-clauses"
+      ]
+    },
+    {
+      "id": "pdf/honorarios-account-outline-core",
+      "path": "modulos/pdf/honorarios-account-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental"
+      ],
+      "capabilities": [
+        "honorarios-account-outline",
+        "arrears-summary",
+        "billing-period-state"
+      ]
+    },
+    {
+      "id": "pdf/pod-certificate-core",
+      "path": "modulos/pdf/pod-certificate-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "acargoo"
+      ],
+      "used_in_blueprints": [
+        "delivery"
+      ],
+      "capabilities": [
+        "pod-pdf",
+        "delivery-certificate",
+        "santiago-timestamp"
+      ]
+    },
+    {
+      "id": "pdf/rental-contract-outline-core",
+      "path": "modulos/pdf/rental-contract-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "CorredoresPro"
+      ],
+      "used_in_blueprints": [
+        "real-estate-operativo"
+      ],
+      "capabilities": [
+        "rental-contract-outline",
+        "uf-clp-formatting",
+        "contract-base-clauses"
+      ]
+    },
+    {
+      "id": "pdf/service-quote-outline-core",
+      "path": "modulos/pdf/service-quote-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental"
+      ],
+      "capabilities": [
+        "service-quote-outline",
+        "commercial-proposal-structure",
+        "quote-totals"
+      ]
+    },
+    {
+      "id": "pdf/social-security-report-outline-core",
+      "path": "modulos/pdf/social-security-report-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "rrhh-documental"
+      ],
+      "capabilities": [
+        "social-security-report-outline",
+        "worker-payment-summary",
+        "portfolio-social-security-report"
+      ]
+    },
+    {
+      "id": "pdf/tenant-branded-documents",
+      "path": "modulos/pdf/tenant-branded-documents/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "pluscontable.cl",
+        "CorredoresPro",
+        "acargoo"
+      ],
+      "used_in_cases": [
+        "CorredoresPro",
+        "acargoo",
+        "pluscontable.cl",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "booking",
+        "delivery",
+        "pos",
+        "real-estate-operativo",
+        "restaurante",
+        "rrhh-documental",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "pdf-outline",
+        "branding",
+        "document-payload"
+      ]
+    },
+    {
+      "id": "pdf/territorial-report-outline-core",
+      "path": "modulos/pdf/territorial-report-outline-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "reportes, PDFs y exportación",
+      "source_repos": [
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "hojacero"
+      ],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "territorial-report-outline",
+        "market-analysis-sections",
+        "report-cover-metadata"
+      ]
+    },
+    {
+      "id": "portals/role-based-portals",
+      "path": "modulos/portals/role-based-portals/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "CorredoresPro",
+        "pluscontable.cl",
+        "hojacero"
+      ],
+      "used_in_cases": [
+        "CorredoresPro",
+        "caprex"
+      ],
+      "used_in_blueprints": [
+        "crm-operativo",
+        "real-estate-operativo",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "roles",
+        "surfaces",
+        "portal-visibility"
+      ]
+    },
+    {
+      "id": "pos/product-importer",
+      "path": "modulos/pos/product-importer/src/index.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new",
+        "rishtedar",
+        "ICEBUIN"
+      ],
+      "used_in_cases": [
+        "rishtedar",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "restaurante"
+      ],
+      "capabilities": [
+        "catalog-import",
+        "product-normalization",
+        "menu-seeding",
+        "excel-catalog-import",
+        "category-inference",
+        "sku-image-mapping",
+        "table-driven-catalog-sync"
+      ],
+      "summary": "Importador de catálogo desde planillas con aliases flexibles, inferencia de categorías e imagen por SKU."
+    },
+    {
+      "id": "pos/table-service-core",
+      "path": "modulos/pos/table-service-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "used_in_cases": [
+        "rishtedar",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "restaurante"
+      ],
+      "capabilities": [
+        "table-status",
+        "table-totals",
+        "order-move-plan"
+      ]
+    },
+    {
+      "id": "pos/ticket-format-core",
+      "path": "modulos/pos/ticket-format-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "POS y operación",
+      "source_repos": [
+        "truckpos_new"
+      ],
+      "used_in_cases": [
+        "rishtedar",
+        "truckpos_new"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "restaurante"
+      ],
+      "capabilities": [
+        "ticket-labels",
+        "kitchen-ticket-summary",
+        "payment-method-labels"
+      ]
+    },
+    {
+      "id": "tenancy/billing-plan-catalog-core",
+      "path": "modulos/tenancy/billing-plan-catalog-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "fidelizacion"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [],
+      "capabilities": [
+        "billing-plan-catalog",
+        "program-gating",
+        "flow-plan-id"
+      ]
+    },
+    {
+      "id": "tenancy/tenant-config-core",
+      "path": "modulos/tenancy/tenant-config-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "pluscontable.cl",
+        "kurso",
+        "CorredoresPro"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet",
+        "rrhh-documental",
+        "saas-multitenant",
+        "transporte-tracking"
+      ],
+      "capabilities": [
+        "branding",
+        "features",
+        "limits",
+        "tenant-runtime"
+      ]
+    },
+    {
+      "id": "tenancy/tenant-host-routing-core",
+      "path": "modulos/tenancy/tenant-host-routing-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "host-routing",
+        "subdomain-tenants",
+        "cors-origin-check"
+      ]
+    },
+    {
+      "id": "tenancy/tenant-limits-core",
+      "path": "modulos/tenancy/tenant-limits-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "tenant-limits",
+        "plan-gating",
+        "remaining-capacity"
+      ]
+    },
+    {
+      "id": "tenancy/tenant-shell-core",
+      "path": "modulos/tenancy/tenant-shell-core/src.ts",
+      "status": "usable inicial endurecido",
+      "category": "auth y tenants",
+      "source_repos": [
+        "pluscontable.cl"
+      ],
+      "used_in_cases": [
+        "pluscontable.cl"
+      ],
+      "used_in_blueprints": [
+        "loyalty-wallet",
+        "rrhh-documental",
+        "saas-multitenant"
+      ],
+      "capabilities": [
+        "tenant-shell",
+        "branding-compose",
+        "path-prefixing",
+        "subscription-status"
+      ]
+    },
+    {
+      "id": "notifications/hospitality-email-core",
+      "path": "modulos/notifications/hospitality-email-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "capabilities": [
+        "hospitality-emails",
+        "reservation-confirmation",
+        "newsletter-welcome",
+        "brand-templates"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "notificaciones y mensajeria",
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "booking",
+        "restaurante"
+      ]
+    },
+    {
+      "id": "crm/demo-tracking-core",
+      "path": "modulos/crm/demo-tracking-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "hojacero"
+      ],
+      "capabilities": [
+        "demo-tracking",
+        "visit-counts",
+        "team-device-filtering",
+        "prospect-analytics"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "crm y tracking",
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ]
+    },
+    {
+      "id": "crm/weekly-ranking-core",
+      "path": "modulos/crm/weekly-ranking-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "rishtedar"
+      ],
+      "capabilities": [
+        "weekly-ranking",
+        "leaderboard",
+        "attempt-limits",
+        "privacy-phone-hint"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "crm y engagement",
+      "used_in_cases": [],
+      "used_in_blueprints": []
+    },
+    {
+      "id": "crm/growth-plan-core",
+      "path": "modulos/crm/growth-plan-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "hojacero"
+      ],
+      "capabilities": [
+        "growth-plans",
+        "task-seeding",
+        "health-trend",
+        "progress-summary"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "crm y growth",
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ]
+    },
+    {
+      "id": "ops/report-pipeline-core",
+      "path": "modulos/ops/report-pipeline-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "hojacero"
+      ],
+      "capabilities": [
+        "report-assets",
+        "report-downloads",
+        "print-url",
+        "source-data-patch"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "reportes y ops",
+      "used_in_cases": [
+        "CorredoresPro"
+      ],
+      "used_in_blueprints": [
+        "pos",
+        "real-estate-operativo"
+      ]
+    },
+    {
+      "id": "ops/chilean-utils-core",
+      "path": "modulos/ops/chilean-utils-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "pluscontable.cl",
+        "CorredoresPro"
+      ],
+      "capabilities": [
+        "rut-validation",
+        "uf-conversion",
+        "clp-formatting",
+        "chile-regions"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "operacion chilena",
+      "used_in_cases": [
+        "CorredoresPro"
+      ],
+      "used_in_blueprints": [
+        "real-estate-operativo",
+        "rrhh-documental"
+      ]
+    },
+    {
+      "id": "geo/map-surface-core",
+      "path": "modulos/geo/map-surface-core/src.ts",
+      "reusable": "medio",
+      "extraction": "extraible",
+      "source_repos": [
+        "hojacero"
+      ],
+      "capabilities": [
+        "map-surface",
+        "map-flyto",
+        "map-popups",
+        "real-estate-markers"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "geo visual",
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "real-estate-operativo",
+        "transporte-tracking"
+      ]
+    },
+    {
+      "id": "crm/sales-agent-core",
+      "path": "modulos/crm/sales-agent-core/src.ts",
+      "reusable": "medio",
+      "extraction": "extraible",
+      "source_repos": [
+        "hojacero"
+      ],
+      "capabilities": [
+        "sales-agent",
+        "objection-handling",
+        "audit-closing",
+        "lead-capture-flow"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "crm y ia comercial",
+      "used_in_cases": [],
+      "used_in_blueprints": [
+        "crm-operativo"
+      ]
+    },
+    {
+      "id": "factory/free-page-builder-core",
+      "path": "modulos/factory/free-page-builder-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "capabilities": [
+        "free-page-builder",
+        "canvas-layout",
+        "drag-drop-widgets",
+        "visual-inspector",
+        "json-import-export",
+        "device-preview",
+        "widget-binding",
+        "json-gpt-bridge",
+        "live-data-widgets",
+        "button-style-presets"
+      ],
+      "summary": "Builder visual libre con canvas, historial, widgets enlazables a datos reales y puente JSON/GPT.",
+      "status": "usable inicial endurecido",
+      "category": "cms y builders visuales",
+      "used_in_cases": [],
+      "used_in_blueprints": []
+    },
+    {
+      "id": "cms/reseller-landing-layout-core",
+      "path": "catalogo/superpanel3.0.md",
+      "reusable": "medio",
+      "extraction": "requiere refactor",
+      "source_repos": [
+        "superpanel3.0"
+      ],
+      "capabilities": [
+        "sectional-landing-layout",
+        "reseller-branding",
+        "public-slug-landing",
+        "block-visibility-order",
+        "guided-white-label-layout",
+        "reseller-public-landing"
+      ],
+      "summary": "Editor guiado de landing white-label por reseller, útil como wrapper de producto más que como builder libre.",
+      "status": "referencia final",
+      "category": "cms y landing white-label",
+      "used_in_cases": [],
+      "used_in_blueprints": []
+    },
+    {
+      "id": "ai/safety-assistant-core",
+      "path": "modulos/ai/safety-assistant-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "capabilities": [
+        "typed-ai-requests",
+        "workflow-embedded-ai",
+        "structured-spanish-output",
+        "domain-prompts",
+        "shared-ai-hook",
+        "multi-surface-ai",
+        "specialized-request-modes"
+      ],
+      "status": "usable inicial endurecido",
+      "summary": "Capa de IA embebida en workflow con solicitudes tipadas y backend compartido para varias superficies.",
+      "category": "ia aplicada a workflows",
+      "used_in_cases": [
+        "ceroriesgos"
+      ],
+      "used_in_blueprints": []
+    },
+    {
+      "id": "pdf/safety-report-outline-core",
+      "path": "modulos/pdf/safety-report-outline-core/src.ts",
+      "reusable": "alto",
+      "extraction": "extraible",
+      "source_repos": [
+        "ceroriesgos"
+      ],
+      "capabilities": [
+        "accident-pdf",
+        "inspection-pdf",
+        "training-pdf",
+        "signature-attendance"
+      ],
+      "status": "usable inicial endurecido",
+      "category": "pdfs operativos",
+      "used_in_cases": [
+        "ceroriesgos"
+      ],
+      "used_in_blueprints": []
+    }
+  ]
+}
